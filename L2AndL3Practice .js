@@ -596,3 +596,4 @@ function digitSumFact(n){
     }
 } 
 digitSumFact(145)
+

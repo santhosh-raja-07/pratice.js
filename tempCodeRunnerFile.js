@@ -1,21 +1,18 @@
-function digitSumFact(n){
-    let sum=0;
-    let fact1=0;
-    let strValue=n.toString();
-    for(let i=0; i<strValue.length; i++){
-        let fact2=1; 
-        let index=strValue[i];
-        fact1=Number(index);
-        for(let j=1; j<=fact1; j++){
-            fact2=fact2*j;
-        }
-        sum+=fact2;   
+let arrayOfDate = ["JAN-09-2015", "FEB-01-2024", "OCT-10-1987", "MAR-14-2000"];
+let year="";
+let temp=arrayOfDate[0].split('-')
+let oldestDate=+(temp[2]);
+console.log(oldestDate)
+
+for(let x=1; x<arrayOfDate.length; x++){
+    let year2 = arrayOfDate[x].split('-');
+    console.log(year2)
+    let oldestDate2 = arrayOfDate[x]
+    console.log(oldestDate2)
+    if(+(year2[2]) < oldestDate ){
+        oldestDate = +(year2[2]);
+        year = oldestDate2; 
     }
-    if(sum===n){
-        console.log("Strong");
-    }
-    else{
-        console.log("Not Strong")
-    }
-} 
-digitSumFact(145)
+}
+
+console.log(year);
