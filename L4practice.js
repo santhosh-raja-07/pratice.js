@@ -294,7 +294,7 @@ else{
 let arrayOfDate = ["JAN-09-2015", "FEB-01-2024", "OCT-10-1987", "MAR-14-2000"];
 let year="";
 let temp=arrayOfDate[0].split('-')
-let oldestDate=+(temp[2]);
+let oldestDate= Number(temp[2]);
 // console.log(oldestDate)
 
 for(let x=1; x<arrayOfDate.length; x++){
@@ -302,8 +302,8 @@ for(let x=1; x<arrayOfDate.length; x++){
     // console.log(year2)
     let oldestDate2 = arrayOfDate[x]
     // console.log(oldestDate2)
-    if(+(year2[2]) < oldestDate ){
-        oldestDate = +(year2[2]);
+    if( Number(year2[2]) < oldestDate ){
+        oldestDate = Number(year2[2]);
         year = oldestDate2; 
     }
 }
@@ -335,3 +335,93 @@ function calculateTotal(cart) {
 }
 
 calculateTotal(["M 6","J 1", "T 2"]) 
+
+
+let string = "this is a sentence";
+let subStr = "is";
+
+let count = 0;
+for(let i=0; i<string.length; i++){
+    if(subStr[0]===string[i] && subStr[1]===string[i+1]){
+        count++
+    }
+}
+console.log(count);
+
+// Find the second the maximum element in the array
+function findSecondMaxNum(arr){
+    let firstMaxNum = 0;
+    let secondMaxNum = 0;
+    for(let x of arr){
+        if(x > firstMaxNum){
+            firstMaxNum = x;
+        }
+    }
+    for(let x of arr){
+        if(x > secondMaxNum && firstMaxNum != x){
+            secondMaxNum = x;
+        }
+    }
+    console.log(secondMaxNum)
+}
+findSecondMaxNum([4,5,7,92,63,54]);
+
+//Print the different between the maximum and minimum element in a given array. 
+
+function findDifferenBetMaxAndMin(arr){
+      let maximum = 0;
+      let minimum = arr[0];
+      for(let x of arr){
+        if(x > maximum){
+            maximum = x;
+        }
+        if(x < minimum){
+            minimum = x;
+            }
+      }
+      console.log(maximum - minimum)
+}
+findDifferenBetMaxAndMin([4,5,7,92,63,54])
+
+
+
+function alphabeticalOrderLastElement(arr){
+    let letters = "zyxwvutsrqponmlkjihgfedcba";
+    let check = false;
+    for(let i=0; i<letters.length; i++){
+         for(let x of arr){
+            for(let j=0; j<x.length; j++){
+            if(x[j] === letters[i]){
+                check = true;
+                console.log(x)
+                break;
+            }
+        }
+         }
+         if(check){
+            break;
+         }
+    }
+}
+alphabeticalOrderLastElement(["kottai", "jeeva" ,"dhaid" , "krishna"])
+
+
+// Find the second the minimum element in the array
+
+array = [10 , 200 , 300 , 400 , 50]
+let firstvalue = Infinity;
+let secondvalue =Infinity;
+ for(let i=0; i<array.length; i++){
+    if(array[i] < firstvalue ){
+        firstvalue = array[i]
+    }
+}
+for(let i=0; i<array.length ; i++){
+    if(array[i] < secondvalue  &&  array[i] > firstvalue){
+        secondvalue = array[i]
+    }
+}
+
+ console.log(secondvalue)
+
+

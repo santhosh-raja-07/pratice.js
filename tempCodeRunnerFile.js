@@ -1,18 +1,51 @@
-let arrayOfDate = ["JAN-09-2015", "FEB-01-2024", "OCT-10-1987", "MAR-14-2000"];
-let year="";
-let temp=arrayOfDate[0].split('-')
-let oldestDate=+(temp[2]);
-console.log(oldestDate)
-
-for(let x=1; x<arrayOfDate.length; x++){
-    let year2 = arrayOfDate[x].split('-');
-    console.log(year2)
-    let oldestDate2 = arrayOfDate[x]
-    console.log(oldestDate2)
-    if(+(year2[2]) < oldestDate ){
-        oldestDate = +(year2[2]);
-        year = oldestDate2; 
+function bubbleSortObj(StudentObj){
+    swapped();
+function swapped(){
+    let swap = false;
+    for(let i=0; i<StudentObj.length-1; i++){
+        if(StudentObj[i].city > StudentObj[i+1].city){
+            let temp = StudentObj[i];
+            StudentObj[i]= StudentObj[i+1];
+            StudentObj[i+1] = temp
+            swap = true;
+        }
+       
     }
+    if(swap){
+        swapped();
+    }
+    else{
+        console.log("sorted array")
+       console.log(StudentObj)
+
+    }
+
 }
 
-console.log(year);
+}
+bubbleSortObj([
+    {
+        name: "Jeeva",
+        age: 21,
+        mark: 85,
+        city: "Coimbatore"
+      },
+      {
+        name: "Sathish",
+        age: 20,
+        mark: 92,
+        city: "Thiruvanamalai"
+      },
+      {
+        name: "Sham",
+        age: 21,
+        mark: 78,
+        city: "Chennai"
+      },
+      {
+        name: "Hussian",
+        age: 20,
+        mark: 88,
+        city: "Chennai"
+      }
+])
