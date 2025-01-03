@@ -269,8 +269,8 @@ console.log(arr[n-1]);
 
 
 // Given a number find the LCM of a number
-let a=10;
-let b=20;
+let a=3;
+let b=7;
 let c=a*b;
 for(let i=2; i<=c; i++){
     if(i%a==0 && i%b==0){
@@ -597,3 +597,17 @@ function digitSumFact(n){
 } 
 digitSumFact(145)
 
+a = 3;
+b = 7;
+if(a > b){
+  c = a
+}
+else{
+    c = b
+}
+for(let i=2; i<a+1 ; i++){
+     if ((i*c) % a == 0){
+        console.log(i*c)
+        break;
+     }
+}
