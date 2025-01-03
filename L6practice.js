@@ -112,3 +112,29 @@ function getTotalX(a,b){
 console.log(getTotalX([2,6] , [24,36]))
 console.log(getTotalX([2,4] , [16,32,96]))
 console.log(getTotalX([2] , [20,30,12]))
+
+
+//Apple and Orange sum in HackerRank
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    // Write your code here
+    let countA = 0;
+    let countB = 0;
+    
+    for(let i of apples){
+        let sum = i + a;
+        if(sum >= s && sum <= t){
+            countA++
+        }
+    }
+    
+    for(let x of oranges){
+        let sum = x + b;
+        if(sum >= s && sum <= t){
+            countB++
+        }
+    }  
+    console.log(countA)
+    console.log(countB)
+
+}
+countApplesAndOranges(7, 10, 4, 12, [2,3,-4], [3,-2,-4])
