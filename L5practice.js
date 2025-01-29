@@ -6,7 +6,6 @@ while(count>0){
     count = 0
     for(let i=0; i<arr.length-1; i++){
         if(arr[i] > arr[i+1]){
-            // console.log(arr.join(" "))
             let temp = arr[i];
             arr[i] = arr[i+1];
             arr[i+1] = temp
@@ -208,12 +207,12 @@ function select(arr){
         let temp = arr[i]
         let j=i-1
         while(j >=0 && arr[j] > temp){
-            console.log(arr.join(" "))
             arr[j+1] = arr[j]
             j--
         }
         arr[j+1] = temp
+        console.log(arr)
     }
     console.log(arr)
 }
-select([8,6,9,4,6,2,1])
+select([2,1,4,5,6])
