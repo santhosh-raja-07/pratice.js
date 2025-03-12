@@ -216,3 +216,53 @@ function select(arr){
     console.log(arr)
 }
 select([2,1,4,5,6])
+
+function jumpingOnClouds(c, k) {
+    let e = 100;
+    let i = 0;
+    let check = true;
+    while(check){
+        if(c[i] == 0){
+            e = e-1;
+        }
+        else if(c[i] == 1){
+            e = e - 3;
+        }
+        i+=k
+        i=i%c.length;
+        if(i == 0){
+            check = false;
+        }
+    }
+    return e;
+
+}
+// n = 8, k = 2
+// c = [0, 0, 1, 0, 0, 1, 1, 0]
+
+console.log(jumpingOnClouds([0, 0, 1, 0, 0, 1, 1, 0] , 2));
+
+//Missing Numbers
+
+function missingNumbers(arr , brr){
+    let ar = {};
+let br = {};
+let res =[];
+
+for(let i of arr){
+    ar[i] = (ar[i] || 0) + 1;
+}
+for(let j of brr){
+    br[j] = (br[j] || 0) + 1;
+}
+for(let key in br){
+    if(!ar[key]){
+        res.push(key)
+    }
+    else if(ar[key] !== br[key]){
+         res.push(key)
+    }
+}
+return res;
+}
+console.log(missingNumbers([7,2,5,3,5,3] , [7,2,5,4,6,3,5,3]))

@@ -292,36 +292,34 @@ for(let i=0; i<arr.length; i++){
 console.log(resArr)
 
 
-let strs = ["cir","car"]
-let result = ""
+// let strs = ["cir","car"]
+// let result = ""
 
 
-for(let i =0; i<strs[0].length; i++){
-        let count = 1
-    for(let j=0 ; j<strs.length-1; j++){
-        if(strs[j][i] === strs[j+1][i]){
-           count++
-        }
-        if(count === strs.length){
-            result += strs[j][i]
-        }
-    }
-    if(count < strs.length){
-        break;
-    }
-}
-console.log(result)
+// for(let i =0; i<strs[0].length; i++){
+//         let count = 1
+//     for(let j=0 ; j<strs.length-1; j++){
+//         if(strs[j][i] === strs[j+1][i]){
+//            count++
+//         }
+//         if(count === strs.length){
+//             result += strs[j][i]
+//         }
+//     }
+//     if(count < strs.length){
+//         break;
+//     }
+// }
+// console.log(result)
 
 
 function isPalindrome(x) {
-
     let changeStr = x.toString();
     let res = "";
-    for(let i=changeStr.length; i>=0; i--){
+    for(let i=changeStr.length-1; i>=0; i--){
+        if(typeof(changeStr[i]))
           res += changeStr[i];
-          console.log(res)
     }
-    console.log(Number(res))
     if( x === Number(res) ){
         return true;
     }
@@ -330,3 +328,208 @@ function isPalindrome(x) {
     }
 };
 console.log(isPalindrome(121))
+
+
+function singleNum(num){
+  let addNum = num.toString();
+  while(addNum.length >= 1){
+    if(addNum.length === 1){
+        return Number(addNum);
+    }
+    else{
+        let output = 0 ;
+        for(let x=0; x<addNum.length; x++){
+            output+= Number(addNum[x])
+        }
+        addNum = output.toString();
+    }
+  }
+}
+console.log(singleNum(78945623));
+
+function mergeArray(arr1 , arr2){
+    let count1 = 0;
+    let count2 = 0;
+    let arr=[];
+    let check = true;
+    let max = 0;
+    if(arr1[arr1.length-1] <= arr2[arr2.length-1]){
+        max = arr2[arr2.length-1];
+    }
+    else{
+        max = arr1[arr1.length-1]
+    }
+    while(count1 < arr1.length && count2 < arr2.length){
+        if(arr1[count1] >= arr2[count2]){
+            arr[arr.length] = arr2[count2];
+            count2++
+        }
+        else{
+            arr[arr.length] = arr1[count1];
+            count1++
+        }
+
+    }
+    while(check){
+        if(max != arr[arr.length-1]){
+            arr[arr.length] = arr2[count2];
+            count2++
+        }
+        else{
+            check = false;
+        }
+    }
+    return arr;
+}
+
+console.log(mergeArray([1,2,3,4,5,7,8], [3,4,5,6,7,9]));
+
+// function mergeSort(arr){
+//     if(arr.length <= 1){
+//         return arr
+//     }
+
+//     let mid = Math.floor(arr.length / 2);
+//     let leftArr = mergeSort(arr.slice(0,mid))
+//     let rightArr = mergeSort(arr.slice(mid));
+    
+//     return mergeSorting(leftArr , rightArr);
+// }
+
+// function mergeSorting(leftArr , rightArr){
+//     let resArr = [];
+//     while( leftArr.length > 0 && rightArr.length > 0 ){
+//         if(leftArr[0] < rightArr[0]){
+//         resArr.push(leftArr.shift());
+//         }
+//         else{
+//             resArr.push(rightArr.shift());
+//         }
+//     }
+//     return [...resArr, ...leftArr , ...rightArr];
+// }
+// console.log(mergeSort( [7,8,9,5] ));
+
+
+function superDigit( n , k){
+    if( n < 10){
+        return n
+    }
+    else{
+        let str = n.toString();
+        if(k > 1){
+           for(let i=1 ; i<k; i++){
+            str += n;
+           }
+        }
+        let sumOfStr = 0;
+        for(let j=0; j<str.length; j++){
+            sumOfStr += Number(str[j]);
+        }
+        return superDigit(sumOfStr)
+    }
+
+}
+
+console.log(superDigit( 148 , 3 ))
+
+let nums = [1,3,5,6];
+target = 7;
+if(!nums.includes(target)){
+    let temp = 0;
+    for(let i=0; i<nums.length; i++){ 
+        if(target < nums[i]){
+            temp = i;
+            break;
+        }
+        else{
+            temp = nums.length;
+        }
+    }
+    return temp
+}
+
+
+function mergeSort(arr){
+    if(arr.length < 1) return arr;
+    else{
+    let arr1 = mergeSort(Math.floor(arr.slice(0 , arr.length)));
+    let arr2 = mergeSort(arr.slice(arr.length));
+    return mergeArr(arr1 , arr2);
+    }
+}
+function mergeArr(arr1 , arr2){
+    let res = [];
+    let right = 0;
+    let left = 0;
+    while(arr1.length > 1 && arr2.length >1){
+        if(arr1[right] < arr2[left]){
+            res.push(arr1[right]);
+            right++;
+        }
+        else{
+            res.push(arr2[left]);
+            left++;
+        }
+    }
+}
+mergeSort([4,3,2,1,7,8,9,5]);
+
+function mergeTwoArr(list1 , list2){
+    let resArr = [];
+    let i=0;
+    let j=0;
+    while( list1.length > i && list2.length > j ){
+        if(list1[i] < list2[j]){
+            resArr.push(list1[i]);
+            i++;
+        }
+        else{
+            resArr.push(list2[j]);
+            j++;
+        }
+    }
+    while(list1.length > i){
+        resArr.push(list1[i]);
+        i++;
+    }
+    while(list2.length > j){
+        resArr.push(list2[j]);
+        j++;
+    }
+    return resArr;
+
+    // let resArr = [...list1 , ...list2];
+    // return resArr.sort();
+}
+console.log(mergeTwoArr([1,2,4] , [1,3,4]))
+
+function countOfTwoPair(ar){
+    let obj = {};
+    for(let i of ar){
+        obj[i] = (obj[i] || 0) + 1;
+    }
+    let count = 0;
+    for(let key in obj){
+        let keyvalue = obj[key]/2;
+        count+= Math.floor(keyvalue)
+    }
+    return count;
+}
+console.log(countOfTwoPair([10, 20, 20, 10, 10, 30, 50, 10, 20]));
+console.log(countOfTwoPair([1, 2, 1, 2, 1, 3, 2]));
+
+function countUniqeElement(nums){
+    let arrLen = nums.length
+    let i = 0;
+    let j = 1;
+    while(arrLen > 0){
+        if(nums[i] == nums[j]){
+            let num = nums.shift();
+            nums.push(num);
+        }
+        arrLen-1;
+    }
+    return nums;
+}
+console.log(countUniqeElement([0,0,1,1,1,2,2,3,3,4]))

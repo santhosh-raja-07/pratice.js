@@ -1,17 +1,22 @@
-function isPalindrome(x) {
+function missingNumbers(arr , brr){
+    let ar = {};
+let br = {};
+let res =[];
 
-    let changeStr = x.toString();
-    let res = "";
-    for(let i=changeStr.length; i>=0; i--){
-          res += changeStr[i];
-          console.log(res)
+for(let i of arr){
+    ar[i] = (ar[i] || 0) + 1;
+}
+for(let j of brr){
+    br[j] = (br[j] || 0) + 1;
+}
+for(let key in br){
+    if(!ar[key]){
+        res.push(key)
     }
-    console.log(Number(res))
-    if( x === Number(res) ){
-        return true;
+    else if(ar[key] !== br[key]){
+         res.push(key)
     }
-    else{
-        return false;
-    }
-};
-console.log(isPalindrome(121))
+}
+return res;
+}
+console.log(missingNumbers([7,2,5,3,5,3] , [7,2,5,4,6,3,5,3]))

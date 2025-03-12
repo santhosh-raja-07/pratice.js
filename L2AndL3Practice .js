@@ -611,3 +611,24 @@ for(let i=2; i<a+1 ; i++){
         break;
      }
 }
+
+arr =  [1, 2, 3, 4, 2, 5, 6, 3, 7, 8, 1];
+let res = [];
+if(arr == null || arr.length == 0){
+    console.log();
+}
+else{
+    for(let i=0; i<arr.length; i++){
+        let check = 0;
+        for(let j=i; j<arr.length; j++){
+            if(arr[i] == arr[j] && i!= j){
+                check++;
+            }
+        }
+       if(check == 0){
+        res.push(arr[i]) 
+       }
+
+    }
+}
+console.log(res.sort().join(" "));

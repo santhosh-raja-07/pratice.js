@@ -425,3 +425,13 @@ for(let i=0; i<array.length ; i++){
  console.log(secondvalue)
 
 
+//There are n stairs, and a person standing at the bottom wants to climb stairs to reach the top. The person can climb either 1 stair or 2 stairs at a time, the task is to count the number of ways that a person can reach at the top.
+
+// Input: n = 2
+// Output: 2
+// Explanation: There are two ways to reach 2th stair: {1, 1} and {2}. 
+
+// Input: n = 4
+// Output: 5
+// Explanation: There are five ways to reach 4th stair: {1, 1, 1, 1}, {1, 1, 2}, {2, 1, 1}, {1, 2, 1} and {2, 2}.
+
